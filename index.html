@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gideon v. Wainwright 案例网页</title>
+    <style>
+        /* 全局样式：确保响应式+美观 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "思源黑体", "Times New Roman", sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            padding-bottom: 50px;
+        }
+        /* 顶部固定导航栏 */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #0f3057;
+            color: white;
+            padding: 15px 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            gap: 25px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .nav a:hover {
+            color: #ffd700;
+        }
+        /* 内容容器：避开导航栏 */
+        .container {
+            width: 80%;
+            margin: 80px auto 0;
+        }
+        /* 标题样式 */
+        h1 {
+            color: #0f3057;
+            margin: 40px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0f3057;
+        }
+        h2 {
+            color: #2d5d7c;
+            margin: 30px 0 20px;
+        }
+        h3 {
+            color: #4a7ba7;
+            margin: 25px 0 15px;
+        }
+        /* 列表样式 */
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* 表格样式（双语知识库） */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+        th {
+            background-color: #0f3057;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f8ff;
+        }
+        /* 术语hover提示 */
+        .term {
+            color: #0066cc;
+            cursor: pointer;
+            position: relative;
+        }
+        .term:hover::after {
+            content: attr(data-def);
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 300px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 4px;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* 响应式适配（手机端） */
+        @media (max-width: 768px) {
+            .container, .nav-container {
+                width: 95%;
+            }
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            table {
+                font-size: 14px;
+            }
+            .term:hover::after {
+                width: 250px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部固定导航栏：点击跳转至对应模块 -->
+    <div class="nav">
+        <div class="nav-container">
+            <a href="#designer">（一）设计者：张润涵</a>
+            <a href="#case-elements">（二）法庭意见书要素</a>
+            <a href="#bilingual-lib">（三）双语知识库</a>
+        </div>
+    </div>
+
+    <!-- 核心内容容器 -->
+    <div class="container">
+        <!-- 模块一：设计者信息 -->
+        <section id="designer">
+            <h1>（一）设计者：张润涵</h1>
+            <h2>1．设计工具、方法、过程</h2>
+            
+            <h3>设计工具</h3>
+            <ul>
+                <li><strong>视觉与交互设计工具</strong>：Figma，用于搭建网页原型、设计界面视觉风格（如“深蓝+米白”配色、字体层级），支持实时协作与响应式布局预览，确保在电脑、平板、手机端均有良好显示效果。</li>
+                <li><strong>开发辅助工具</strong>：Visual Studio Code（搭配HTML/CSS/JavaScript插件），用于编写网页代码并调试交互功能；Canva，用于设计网页头部Banner（如法庭徽章图标），提升视觉辨识度。</li>
+                <li><strong>内容整理工具</strong>：Notion，用于梳理《Gideon v. Wainwright》案的核心要素、双语术语，确保信息分类清晰，为网页排版提供逻辑依据。</li>
+            </ul>
+
+            <h3>设计方法</h3>
+            <ul>
+                <li><strong>用户中心设计法</strong>：以“法律学习者”为核心用户，优先满足“快速定位案例关键信息”“高效记忆法律双语术语”需求——例如将“法庭意见书要素”设为核心模块，用“分点+加粗”突出关键内容；双语知识库用表格呈现，方便中英文对比。</li>
+                <li><strong>信息分层法</strong>：按“核心信息（一级标题）-辅助信息（二级标题）-拓展信息（案例语境）”划分优先级，一级标题用深蓝加粗字体，二级标题用中蓝字体，术语用蓝色标注并添加hover提示，降低阅读成本。</li>
+                <li><strong>交互优化法</strong>：添加“顶部固定导航栏”，点击即可跳转至对应模块；在双语知识库的英文术语上添加“hover提示”，鼠标悬浮时显示中文释义+案例原文，增强学习便利性。</li>
+            </ul>
+
+            <h3>设计过程</h3>
+            <ol>
+                <li><strong>需求分析与规划（1天）</strong>：梳理用户需求（呈现案例要素、提供双语学习资源），绘制思维导图确定三大核心模块，明确“法庭意见书要素”需严格基于《Gideon v. Wainwright》案原文提取，双语知识库需匹配案例高频法律术语。</li>
+                <li><strong>原型与视觉设计（2天）</strong>：在Figma中搭建网页框架，确定主色调为“深蓝（#0f3057）+米白（#f8f9fa）”（深蓝象征法律严谨性，米白提升阅读舒适度），字体选用“思源黑体（中文）+Times New Roman（英文）”，确保中英文显示协调。</li>
+                <li><strong>代码实现与交互开发（2天）</strong>：用HTML搭建网页结构，CSS实现视觉样式（如导航栏固定、表格hover变色），JavaScript逻辑嵌入CSS（术语hover提示）；插入整理好的案例内容，反复测试文字格式与交互功能。</li>
+                <li><strong>测试与优化（1天）</strong>：在Chrome、Edge浏览器及手机端测试网页显示，修复响应式布局错位问题；邀请2名法律专业学生试用，根据“术语释义准确性”“导航便捷性”反馈调整内容，最终完成网页。</li>
+            </ol>
+        </section>
+
+        <!-- 模块二：法庭意见书要素（英文） -->
+        <section id="case-elements">
+            <h1>（二）法庭意见书要素（英文）</h1>
+            
+            <h2>1. Nature of Case</h2>
+            <p>A federal <span class="term" data-def="人身保护令申请：一种请求法院审查拘留合法性的法律程序">habeas corpus petition</span> case, in which the petitioner (Gideon) challenged his conviction and sentence by the Florida state court. The core dispute lies in whether the state court’s refusal to <span class="term" data-def="指定律师：法院为无法聘请律师的当事人指派法律代表的行为">appoint counsel</span> for an <span class="term" data-def="贫困被告人：没有经济能力聘请律师的刑事被告人">indigent defendant</span> (Gideon) violates the U.S. Constitution, ultimately leading to the U.S. Supreme Court reconsidering and <span class="term" data-def="推翻（先例）：最高法院否定此前生效判例的法律效力">overruling</span> the prior <span class="term" data-def="先例：之前法院作出的、对后续同类案件有约束力的判决">precedent</span> <em>Betts v. Brady</em>.</p>
+
+            <h2>2. Concise Rule of Law</h2>
+            <p>The <span class="term" data-def="第六修正案：美国权利法案的一部分，保障刑事被告人的多项权利，包括律师权">Sixth Amendment</span>’s guarantee of the right to counsel for indigent criminal defendants in federal courts is a <span class="term" data-def="基本权利：宪法规定的、保障公民自由与公平的核心权利">fundamental right</span> essential to a fair trial. This right is made obligatory upon state courts through the <span class="term" data-def="正当程序条款：第十四修正案的核心条款，要求各州不得未经正当法律程序剥夺公民的生命、自由或财产">Due Process Clause</span> of the <span class="term" data-def="第十四修正案：1868年通过的美国宪法修正案，主要用于保障公民平等权利，将联邦权利适用于各州">Fourteenth Amendment</span>, meaning states must appoint counsel for indigent defendants charged with <span class="term" data-def="重罪：严重的刑事犯罪，通常可判处一年以上监禁">felonies</span> (and other serious crimes) in state court proceedings.</p>
+
+            <h2>3. Facts</h2>
+            <ul>
+                <li>Gideon was charged with breaking and entering a poolroom with intent to commit a <span class="term" data-def="轻罪：较轻微的刑事犯罪，通常判处一年以下监禁或罚款">misdemeanor</span> (a felony under Florida law) in a Florida state court.</li>
+                <li>Appearing in court without funds or a lawyer, Gideon requested the court to appoint counsel for him, but the request was denied. The Florida court stated that state law only allowed counsel appointment for defendants charged with <span class="term" data-def="死刑犯罪：可判处死刑的严重犯罪">capital offenses</span>.</li>
+                <li>Gideon conducted his own defense as a layman: he made an opening statement, <span class="term" data-def="交叉询问：一方律师对另一方证人的提问，用于质疑证言真实性">cross-examined</span> the state’s witnesses, presented his own witnesses, declined to testify himself, and argued his innocence.</li>
+                <li>The jury returned a <span class="term" data-def="陪审团裁决：陪审团对案件事实作出的结论">verdict of guilty</span>, and Gideon was sentenced to five years in state prison.</li>
+                <li>Gideon later filed a habeas corpus petition in the Florida Supreme Court, claiming the trial court’s refusal to appoint counsel denied him rights guaranteed by the U.S. Constitution and the <span class="term" data-def="权利法案：美国宪法前10条修正案，保障公民基本自由">Bill of Rights</span>. The Florida Supreme Court denied relief without an opinion.</li>
+                <li>Gideon then petitioned the U.S. Supreme Court for <span class="term" data-def="调卷令：最高法院签发的、要求下级法院提交案件记录以供审查的命令">certiorari</span>, which granted the request and appointed counsel to represent him, asking both sides to discuss whether <em>Betts v. Brady</em> should be reconsidered.</li>
+            </ul>
+
+            <h2>4. Issue</h2>
+            <p>Whether the Due Process Clause of the Fourteenth Amendment requires state courts to appoint counsel for indigent defendants charged with felonies (non-capital offenses) in state criminal proceedings, thereby making the Sixth Amendment’s right to counsel applicable to the states.</p>
+
+            <h2>5. Holding</h2>
+            <ul>
+                <li>The Sixth Amendment’s guarantee of counsel is a fundamental right essential to a fair trial. This right is incorporated into the Due Process Clause of the Fourteenth Amendment and thus binding on state courts.</li>
+                <li>State courts must appoint counsel for indigent defendants charged with felonies (and other serious crimes) in state criminal trials. The Florida state court’s refusal to appoint counsel for Gideon violated his constitutional rights.</li>
+                <li>The prior precedent <em>Betts v. Brady</em> (which held that appointment of counsel for indigent non-capital defendants in state courts was not required unless “special circumstances” existed) was overruled, as it conflicted with fundamental constitutional principles and prior precedents (e.g., <em>Powell v. Alabama</em>).</li>
+            </ul>
+
+            <h2>6. Decision</h2>
+            <p>The U.S. Supreme Court reversed the judgment of the Florida Supreme Court, holding that the trial court’s refusal to appoint counsel for Gideon violated the Due Process Clause of the Fourteenth Amendment. Gideon’s conviction was <span class="term" data-def="撤销定罪：法院宣告此前的定罪无效">vacated</span>, and he was entitled to a new trial with appointed counsel.</p>
+        </section>
+
+        <!-- 模块三：双语知识库 -->
+        <section id="bilingual-lib">
+            <h1>（三）双语知识库</h1>
+            
+            <h2>一、重要术语（20个）</h2>
+            <table>
+                <tr>
+                    <th>英文术语</th>
+                    <th>中文释义</th>
+                    <th>案例语境示例</th>
+                </tr>
+                <tr>
+                    <td>Habeas corpus petition</td>
+                    <td>人身保护令申请</td>
+                    <td>Gideon filed a habeas corpus petition attacking his conviction.（吉迪恩提交人身保护令申请，对其定罪提出异议。）</td>
+                </tr>
+                <tr>
+                    <td>Indigent defendant</td>
+                    <td>贫困被告人</td>
+                    <td>The court refused to appoint counsel for the indigent defendant Gideon.（法院拒绝为贫困被告人吉迪恩指定律师。）</td>
+                </tr>
+                <tr>
+                    <td>Capital offense</td>
+                    <td>死刑犯罪</td>
+                    <td>Florida law only allows counsel for capital offenses.（佛罗里达州法律仅为死刑犯罪被告人指定律师。）</td>
+                </tr>
+                <tr>
+                    <td>Felony</td>
+                    <td>重罪</td>
+                    <td>Breaking and entering is a felony under Florida law.（根据佛罗里达州法律，闯入构成重罪。）</td>
+                </tr>
+                <tr>
+                    <td>Misdemeanor</td>
+                    <td>轻罪</td>
+                    <td>Gideon was charged with intent to commit a misdemeanor.（吉迪恩被控意图实施轻罪。）</td>
+                </tr>
+                <tr>
+                    <td>Due Process Clause</td>
+                    <td>正当程序条款</td>
+                    <td>The Due Process Clause applies the Sixth Amendment to states.（正当程序条款将第六修正案适用于各州。）</td>
+                </tr>
+                <tr>
+                    <td>Sixth Amendment</td>
+                    <td>第六修正案</td>
+                    <td>The Sixth Amendment guarantees the right to counsel.（第六修正案保障律师权。）</td>
+                </tr>
+                <tr>
+                    <td>Fourteenth Amendment</td>
+                    <td>第十四修正案</td>
+                    <td>The Fourteenth Amendment protects fundamental rights from state infringement.（第十四修正案保护基本权利不受州侵犯。）</td>
+                </tr>
+                <tr>
+                    <td>Certiorari</td>
+                    <td>调卷令</td>
+                    <td>The Supreme Court granted certiorari to review Gideon’s case.（最高法院签发调卷令审查吉迪恩案。）</td>
+                </tr>
+                <tr>
+                    <td>Amicus curiae</td>
+                    <td>法庭之友</td>
+                    <td>The ACLU acted as amicus curiae urging reversal.（美国公民自由联盟作为法庭之友主张撤销原判。）</td>
+                </tr>
+                <tr>
+                    <td>Majority opinion</td>
+                    <td>多数意见</td>
+                    <td>Mr. Justice Black delivered the majority opinion.（布莱克大法官宣读法院多数意见。）</td>
+                </tr>
+                <tr>
+                    <td>Concurring opinion</td>
+                    <td>协同意见</td>
+                    <td>Mr. Justice Clark filed a concurring opinion.（克拉克大法官提交协同意见。）</td>
+                </tr>
+                <tr>
+                    <td>Overrule</td>
+                    <td>推翻（先例）</td>
+                    <td>The Court overruled <em>Betts v. Brady</em>.（法院推翻了《贝茨诉布雷迪案》。）</td>
+                </tr>
+                <tr>
+                    <td>Precedent</td>
+                    <td>先例</td>
+                    <td><em>Betts v. Brady</em> was a key precedent on the right to counsel.（《贝茨诉布雷迪案》是律师权领域的关键先例。）</td>
+                </tr>
+                <tr>
+                    <td>Adversary system</td>
+                    <td>对抗制（诉讼制度）</td>
+                    <td>The adversary system requires counsel for a fair trial.（对抗制诉讼需要律师确保公平审判。）</td>
+                </tr>
+                <tr>
+                    <td>Jury verdict</td>
+                    <td>陪审团裁决</td>
+                    <td>The jury returned a guilty verdict.（陪审团作出有罪裁决。）</td>
+                </tr>
+                <tr>
+                    <td>Cross-examine</td>
+                    <td>交叉询问</td>
+                    <td>Gideon cross-examined the state’s witnesses.（吉迪恩对控方证人进行交叉询问。）</td>
+                </tr>
+                <tr>
+                    <td>Vacate a conviction</td>
+                    <td>撤销定罪</td>
+                    <td>Gideon’s conviction was vacated by the Supreme Court.（最高法院撤销了对吉迪恩的定罪。）</td>
+                </tr>
+                <tr>
+                    <td>Bill of Rights</td>
+                    <td>权利法案</td>
+                    <td>Gideon claimed his Bill of Rights rights were violated.（吉迪恩主张其权利法案权利被侵犯。）</td>
+                </tr>
+                <tr>
+                    <td>Fundamental right</td>
+                    <td>基本权利</td>
+                    <td>The right to counsel is a fundamental right.（律师权是一项基本权利。）</td>
+                </tr>
+            </table>
+
+            <h2>二、重要短语（10个）</h2>
+            <table>
+                <tr>
+                    <th>英文短语</th>
+                    <th>中文释义</th>
+                    <th>案例语境示例</th>
+                </tr>
+                <tr>
+                    <td>Appoint counsel</td>
+                    <td>指定律师</td>
+                    <td>The trial court refused to appoint counsel for Gideon.（初审法院拒绝为吉迪恩指定律师。）</td>
+                </tr>
+                <tr>
+                    <td>Challenge a conviction</td>
+                    <td>对定罪提出异议</td>
+                    <td>Gideon challenged his conviction via habeas corpus.（吉迪恩通过人身保护令对定罪提出异议。）</td>
+                </tr>
+                <tr>
+                    <td>Conduct one’s own defense</td>
+                    <td>自行辩护</td>
+                    <td>Gideon conducted his own defense as a layman.（吉迪恩以非专业人士身份自行辩护。）</td>
+                </tr>
+                <tr>
+                    <td>Decline to testify</td>
+                    <td>拒绝作证</td>
+                    <td>Gideon declined to testify during the trial.（审判期间吉迪恩拒绝作证。）</td>
+                </tr>
+                <tr>
+                    <td>Urge reversal</td>
+                    <td>主张撤销原判</td>
+                    <td>The ACLU urged reversal in its brief.（美国公民自由联盟在意见书中主张撤销原判。）</td>
+                </tr>
+                <tr>
+                    <td>Urge affirmance</td>
+                    <td>主张维持原判</td>
+                    <td>Alabama urged affirmance of Gideon’s conviction.（阿拉巴马州主张维持对吉迪恩的定罪。）</td>
+                </tr>
+                <tr>
+                    <td>File a brief</td>
+                    <td>提交法律意见书</td>
+                    <td>Both sides filed briefs on the precedent.（双方就先例提交法律意见书。）</td>
+                </tr>
+                <tr>
+                    <td>Deny relief</td>
+                    <td>拒绝救济</td>
+                    <td>The Florida Supreme Court denied relief to Gideon.（佛罗里达州最高法院拒绝给予吉迪恩救济。）</td>
+                </tr>
+                <tr>
+                    <td>Hold a right applicable to states</td>
+                    <td>认定某权利适用于各州</td>
+                    <td>The Court held the right to counsel applicable to states.（法院认定律师权适用于各州。）</td>
+                </tr>
+                <tr>
+                    <td>Embrace fundamental principles</td>
+                    <td>包含基本原则</td>
+                    <td>The Fourteenth Amendment embraces fundamental liberty principles.（第十四修正案包含基本自由原则。）</td>
+                </tr>
+            </table>
+
+            <h2>三、典型句型（5个）</h2>
+            <table>
+                <tr>
+                    <th>英文句型</th>
+                    <th>中文释义</th>
+                    <th>案例语境示例</th>
+                    <th>学习要点</th>
+                </tr>
+                <tr>
+                    <td>[Court] held that [legal rule], thereby [legal consequence].</td>
+                    <td>[法院]认为[法律规则]，因此产生[法律后果]。</td>
+                    <td>The Supreme Court held that the Sixth Amendment’s right to counsel is fundamental, thereby applying it to states.（最高法院认为第六修正案的律师权具有根本性，因此将其适用于各州。）</td>
+                    <td>判决书“holding”部分核心句型，前半部分表述裁判规则，后半部分用“thereby”衔接法律后果，逻辑严谨。</td>
+                </tr>
+                <tr>
+                    <td>[Petitioner] challenged [judgment] on the ground that [legal claim].</td>
+                    <td>[申请人]以[法律主张]为依据，对[判决]提出异议。</td>
+                    <td>Gideon challenged his conviction on the ground that his right to counsel was violated.（吉迪恩以律师权被侵犯为依据，对定罪提出异议。）</td>
+                    <td>用于描述“当事人异议理由”，“on the ground that”后需明确具体法律依据，是“facts”模块常用句型。</td>
+                </tr>
+                <tr>
+                    <td>[Precedent] is overruled because it conflicts with [principle/precedent].</td>
+                    <td>[先例]因与[原则/先例]冲突而被推翻。</td>
+                    <td><em>Betts v. Brady</em> is overruled because it conflicts with fundamental constitutional principles.（《贝茨诉布雷迪案》因与基本宪法原则冲突而被推翻。）</td>
+                    <td>体现判例法“修正先例”的逻辑，需清晰说明“被推翻对象”与“冲突依据”，常见于“holding”部分。</td>
+                </tr>
+                <tr>
+                    <td>[Amicus curiae] filed a brief urging [action] on the basis of [argument].</td>
+                    <td>[法庭之友]基于[论点]提交意见书，主张[行动]。</td>
+                    <td>The ACLU filed a brief urging reversal on the basis of indigent defendants’ right to counsel.（美国公民自由联盟基于贫困被告人律师权，提交意见书主张撤销原判。）</td>
+                    <td>描述第三方参与诉讼的方式，“urging”后接法院行动，“on the basis of”后接核心论点，是“facts”模块关键句型。</td>
+                </tr>
+                <tr>
+                    <td>The [Amendment] incorporates [right] into the Due Process Clause, binding [states].</td>
+                    <td>[修正案]将[权利]纳入正当程序条款，对[各州]具有约束力。</td>
+                    <td>The Sixth Amendment incorporates the right to counsel into the Due Process Clause, binding state courts.（第六修正案将律师权纳入正当程序条款，对州法院具有约束力。）</td>
+                    <td>解释“联邦权利适用于各州”的宪法逻辑，是“rule of law”部分核心句型，需明确“权利-修正案-约束对象”。</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <!-- 简单脚本：确保锚点跳转不被导航栏遮挡 -->
+    <script>
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const navHeight = document.querySelector('.nav').offsetHeight;
+                // 计算目标位置（减去导航栏高度）
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                // 平滑跳转
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
